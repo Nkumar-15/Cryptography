@@ -1,9 +1,11 @@
-print("**********WELCOME TO ROT13**********")
+import re
+print("**********WELCOME TO ROT__**********")
+print("----Here u can give any shift number to ROT__----")
 alphabet="abcdefghijklmnopqrstuvwxyz"
 #al=list(alphabet)
 out=''
 
-shift=13
+shift=int(input("Enter the shift number="))
 print("Shift=",shift)
 empty=[]
 print("*Select your function: ")
@@ -14,14 +16,13 @@ char=input("Enter the character=")
 print("The entered character =",char)
 char=char.lower()
 
-if m==1 :
-    for i in char:
-        #print(i)
-        if i  not in alphabet:
-            print("Hey man you should enter the character yaar :(")
-            break
-        
-        else:
+if bool(re.search(r'\d',char)) :
+    print("\nHey man u should enter the character ya :(")
+    exit(1)
+    
+else:
+    if m==1 :
+        for i in char:
             n=alphabet.find(i)
             n_shift=n+shift
             if n_shift>=25 :
@@ -30,15 +31,11 @@ if m==1 :
             outchar=alphabet[n_shift]
             empty.append(outchar)
             out="".join([str(j) for j in empty])
-            print(out)
+        print(out)
             
-elif m==2:
-    for i in char:
-    #print(i)
-        if i  not in alphabet:
-            print("\nHey man u should enter the character ya :(")
-            break
-        else:
+    elif m==2:
+        for i in char:
+        
             n=alphabet.find(i)
             n_shift=n-shift
             if n_shift>=25 :
@@ -47,12 +44,12 @@ elif m==2:
             outchar=alphabet[n_shift]
             empty.append(outchar)
             out="".join([str(j) for j in empty])
-            print(out)
+        print(out)
         
         
         
-else:
-    print("Your options are invalid :)")
+    else:
+        print("Your options are invalid :)")
    
     
 
