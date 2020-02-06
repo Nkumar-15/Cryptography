@@ -15,7 +15,9 @@ for i in char:
         print("hey man u should enter the character ya")
         break
     else:
-         n=alphabet.find(i)
+
+
+        n=alphabet.find(i)
     n_shift=n+shift
     if n_shift>=25 :
         n_shift=n_shift-26
